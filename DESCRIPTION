@@ -1,0 +1,22 @@
+Package: installationDriver
+Version: 1.0
+Date: 2026-09-26
+Title: Recursively Determine and Install Missing Dependencies
+Authors@R: c(
+          person("Barry", "Zeeberg", email = "barryz2013@gmail.com",
+                role = c("aut", "cre")))
+Maintainer: Barry Zeeberg <barryz2013@gmail.com>
+Author: Barry Zeeberg [aut, cre]
+Depends: R (>= 4.2.0)
+Imports: tools, utils, vprint
+Description: For a list of specified package, we automate recursively determining and installing the missing CRAN package dependencies ("Depends", "Imports", "LinkingTo"). The main mechanisms used are tools::package_dependencies() and utils::install.packages().
+License: GPL (>= 2)
+Encoding: UTF-8
+VignetteBuilder: knitr
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
+Config/roxygen2/version: 8.1.0
+Config/testthat/edition: 3
+NeedsCompilation: no
+Packaged: 2026-09-26 15:52:28 UTC; barryzeeberg
+Repository: CRAN
+Date/Publication: 2026-10-07 08:00:02 UTC

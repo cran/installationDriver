@@ -1,0 +1,14 @@
+f936f3625dac89cf87e22f012bbe63e6 *DESCRIPTION
+198289ebce45272ea5185db369a08fa5 *NAMESPACE
+69a3afb217978e7ede50987099236f99 *R/installationDriver.R
+4fadb860bad3e891d0a8fcf555c5cabe *build/vignette.rds
+dfa68bf694beb854851158c83eb8437b *inst/doc/installationDriver.Rmd
+94edf6a23d23a43c1179eb758c82e240 *inst/doc/installationDriver.html
+6cc8b0bbeb5f68b3b56a6396ed979924 *man/installationDriver.Rd
+ec2ac44b63b26ec730181bfe6eb3dae9 *man/retrieveNamespace2.Rd
+86b1e1dfdf77cff6dd1818d61605f3b6 *vignettes/fig1.jpg
+e51a2c7441794c690fc7055a16efefea *vignettes/fig2.jpg
+3ef9ffc13dbd6f5dd1ba477b8371b28f *vignettes/fig3.jpg
+2210b0451fbe0b5a2798d372219bdacb *vignettes/fig4.jpg
+dfa68bf694beb854851158c83eb8437b *vignettes/installationDriver.Rmd
+50ab6a98c83cb88a05dc1f98ff256766 *vignettes/transcript.jpg

@@ -1,0 +1,69 @@
+---
+title: "installationDriver"
+author: Barry Zeeberg [aut, cre]
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{installationDriver}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+<style>
+body {
+text-align: justify;
+font-size: 16pt;
+font-family: Times;}
+</style>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt;font-family:"Times New Roman",serif;
+color:red'>Automate Recursively Determining and Installing Missing dependencies.<o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt;font-family:"Times New Roman",serif'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt;font-family:"Times New Roman",serif'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt;font-family:"Times New Roman",serif'>Barry
+Zeeberg<o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt;font-family:"Times New Roman",serif'>barryz2013@gmail.com<o:p></o:p></span></b></p><br>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:16.0pt;
+font-family:"Times New Roman",serif'></p><br>
+
+
+I was using my previous packages *noviceDeveloperResources* and *noviceDeveloperResources2* to automatically load a list of packages, when I encountered an obscure error message. I eventually tracked down the error, which arose from several recursive dependencies not being installed in my library.
+
+I developed the current package *InstallationDriver* to avoid this problem for myself and other users in the future. It recursively finds any missing CRAN package dependencies ("Depends", "Imports", "LinkingTo") and installs them from the CRAN repository. The main mechanisms used are tools::package_dependencies() and utils::install.packages().
+
+Here is an example transcript obtained after I had purposely removed the dependency *hash*
+
+![](transcript.jpg){width=100%}
+<br>
+<br>
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt;font-family:"Times New Roman",serif;
+color:red'>Technical Note: Return Value of *install.packages()*<o:p></o:p></span></b></p>
+
+Not well documented anywhere, but I fortuitously noticed that verbose=TRUE generates a message with the word "succeeded" when installing from a local source .tar.gz
+https://stackoverflow.com/questions/64797849/how-to-save-verbose-output . I had previously used this approach in *NoviceDeveloperResources::checkBuildInstallSourcePackage()*.
+<br>
+![](fig1.jpg){width=100%}
+<br>
+
+In contrast, upon failure, we can detect "NA" rather than "succeeded"
+![](fig2.jpg){width=100%}
+<br>
+<br>
+When applying this to a download from remote CRAN repository, the return codes are different
+<br>
+![](fig3.jpg){width=100%}
+<br>
+Upon failure
+<br>
+![](fig4.jpg){width=100%}
